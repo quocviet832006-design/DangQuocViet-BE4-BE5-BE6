@@ -15,13 +15,14 @@ namespace _24DH112135_MyStore.Models.ViewModel
         public Cart GetCart()
         {
             var cart = (Cart)session["Cart"];
-            if (cart == null) 
-            { 
-                cart = new Cart();
-                session["Cart"] = cart;
+            if (cart == null)
+            {
+                cart = new Cart();       // nếu chưa có Cart, tạo mới
+                session["Cart"] = cart; // lưu vào Session
             }
             return cart;
         }
+
         public void ClearCart()
         {
             session["Cart"] = null;

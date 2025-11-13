@@ -32,8 +32,15 @@ namespace _24DH112135_MyStore.Controllers
             if (product != null)
             {
                 var cartService = GetCartService();
-                cartService.GetCart().AddItem(product.ProductID, product.ProductImage,
-                    product.ProductName, product.ProductPrice, quantity, product.Category.CategoryName);
+                var categoryName = product.Category != null ? product.Category.CategoryName : "Khác";
+
+                cartService.GetCart().AddItem(
+                    product.ProductID,
+                    product.ProductImage,
+                    product.ProductName,
+                    product.ProductPrice,
+                    quantity,
+                    categoryName);
             }
             return RedirectToAction("Index");
         }

@@ -33,7 +33,8 @@ namespace _24DH112135_MyStore.Models.ViewModel
                     ProductImage = productImage,
                     ProductName = productName,
                     UnitPrice = unitPrice,
-                    Quantity = quantity
+                    Quantity = quantity,
+                    Category = category
                 });
             }
             else
