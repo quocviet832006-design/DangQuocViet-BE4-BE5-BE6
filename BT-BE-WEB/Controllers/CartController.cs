@@ -26,9 +26,9 @@ namespace _24DH112135_MyStore.Controllers
         }
 
         //thêm sản phẩm vào giỏ
-        public ActionResult AddToCart(int id, int quantity = 1)
+        public ActionResult AddToCart(int productId, int quantity = 1)
         {
-            var product = db.Products.Find(id);
+            var product = db.Products.Find(productId);
             if (product != null)
             {
                 var cartService = GetCartService();
@@ -42,8 +42,9 @@ namespace _24DH112135_MyStore.Controllers
                     quantity,
                     categoryName);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Cart");
         }
+
 
         //xóa sản phẩm khỏi giỏ
         public ActionResult RemoveFromCart(int id)
@@ -66,5 +67,6 @@ namespace _24DH112135_MyStore.Controllers
             cartService.GetCart().UpdateQuantity(id, quantity);
             return RedirectToAction("Index");
         }
+
     }
 }

@@ -39,10 +39,10 @@
                     <h4><strong>Tạm tính</strong></h4>
                     <p>@Model.estimatedValue.ToString("N0")</p>
 
-                    <p>@Html.ActionLink("Thêm vào giỏ hàng","Index", "Cart",
-                        new {id = Model.product.ProductID,quantity=Model.quantity},
-                        new { @class= "btn btn-info"})
-                    </p>
+                    <p> @Html.ActionLink("Thêm vào giỏ hàng", "AddToCart", "Cart",
+                     new { productId = Model.product.ProductID, quantity = Model.quantity },
+                     new { @class = "btn btn-info" })
+                   </p>
                 }
                 <hr />
             </div>
